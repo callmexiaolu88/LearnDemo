@@ -53,6 +53,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CustomBinding\CustomBinding.csproj">
+      <Project>{8f3434f5-9ae8-435d-9f92-8d6ed6b7b96c}</Project>
+      <Name>CustomBinding</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InterfaceLib\InterfaceLib.csproj">
       <Project>{10835cba-a1cb-436e-82af-333d2d659c9f}</Project>
       <Name>InterfaceLib</Name>

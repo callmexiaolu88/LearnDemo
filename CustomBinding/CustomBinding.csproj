@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9764C28D-F2B2-4AF8-B02E-FA2D825B3EE5}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{8F3434F5-9AE8-435D-9F92-8D6ED6B7B96C}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WcfCallDemo</RootNamespace>
-    <AssemblyName>WcfCallDemo</AssemblyName>
+    <RootNamespace>CustomBinding</RootNamespace>
+    <AssemblyName>CustomBinding</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,21 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="BindingElements\SimpleDuplexSessionBindingElement.cs" />
+    <Compile Include="ChannelManagers\SimpleDuplexSessionChannelFactory.cs" />
+    <Compile Include="ChannelManagers\SimpleDuplexSessionChannelListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CustomBinding\CustomBinding.csproj">
-      <Project>{8f3434f5-9ae8-435d-9f92-8d6ed6b7b96c}</Project>
-      <Name>CustomBinding</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\InterfaceLib\InterfaceLib.csproj">
-      <Project>{10835cba-a1cb-436e-82af-333d2d659c9f}</Project>
-      <Name>InterfaceLib</Name>
-    </ProjectReference>
+    <Compile Include="Channels\SimpleChannelBase.cs" />
+    <Compile Include="ChannelManagers\SimpleChannelFactoryBase.cs" />
+    <Compile Include="ChannelManagers\SimpleChannelListenerBase.cs" />
+    <Compile Include="BindingElements\SimpleDatagramBindingElement.cs" />
+    <Compile Include="ChannelManagers\SimpleDatagramChannelFactory.cs" />
+    <Compile Include="ChannelManagers\SimpleDatagramChannelListener.cs" />
+    <Compile Include="Channels\SimpleDuplexSessionChannel.cs" />
+    <Compile Include="Channels\SimpleReplyChannel.cs" />
+    <Compile Include="Channels\SimpleRequestChannel.cs" />
+    <Compile Include="SimpleDatagramBinding.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

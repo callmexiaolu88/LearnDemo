@@ -9,6 +9,7 @@ using InterfaceLib;
 using System.ServiceModel.Description;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Dispatcher;
+using CustomBinding;
 
 namespace AspectDemo
 {
@@ -19,11 +20,11 @@ namespace AspectDemo
             using (ServiceHost host = new ServiceHost(typeof(CWcfService)))
             {
                 var header=AddressHeader.CreateAddressHeader("Test","http://fitsco.com.cn","Luyulong");
-                EndpointAddress address = new EndpointAddress(new Uri("net.pipe://localhost/Services/WcfService"), header);
-                Binding bind = new NetNamedPipeBinding();
+                EndpointAddress address = new EndpointAddress(new Uri("http://localhost/Services/WcfService"), header);
+                Binding bind = new SimpleDatagramBinding();
                 ContractDescription contract=ContractDescription.GetContract(typeof(IWcfService));
                 ServiceEndpoint endpoint=new ServiceEndpoint(contract,bind,address);
-                endpoint.ListenUri = new Uri("net.pipe://localhost/Services/WcfService1");
+                endpoint.ListenUri = new Uri("http://localhost/Services/WcfService1");
                 host.AddServiceEndpoint(endpoint);
 
                 if (host.Description.Behaviors.Find<ServiceMetadataBehavior>() == null)
