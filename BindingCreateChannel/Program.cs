@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel.Channels;
 using System.ServiceModel;
+using CustomBinding;
 
 namespace BindingCreateChannel
 {
@@ -13,7 +14,7 @@ namespace BindingCreateChannel
         static void Main(string[] args)
         {
             Uri uri = new Uri("http://localhost:8888/BindingCreateChannel");
-            Binding binding = new BasicHttpBinding();
+            Binding binding = new SimpleDatagramBinding();
             var listener = binding.BuildChannelListener<IReplyChannel>(uri);
             listener.Open();
 

@@ -20,7 +20,7 @@ namespace CustomBinding
             _BindingElements = new BindingElementCollection();
             BindingElement[] elements = new BindingElement[]{
                 new SimpleDatagramBindingElement(),
-                new TextMessageEncodingBindingElement(),
+                new BinaryMessageEncodingBindingElement(),
                 _TransportElement,
             };
             _BindingElements = new BindingElementCollection(elements);

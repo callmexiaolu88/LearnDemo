@@ -6,6 +6,7 @@ using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using CustomBinding;
 
 namespace BindingReplay
 {
@@ -14,7 +15,7 @@ namespace BindingReplay
         static void Main(string[] args)
         {
             Uri uri = new Uri("http://localhost:8888/BindingCreateChannel");
-            Binding binding = new BasicHttpBinding();
+            Binding binding = new SimpleDatagramBinding();
             var localObject = binding.BuildChannelFactory<IRequestChannel>();
             localObject.Open();
 
